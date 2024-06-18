@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Selection Area</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .video-container {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .main-video {
+            position: relative;
+        }
+
+        .main-video img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .main-video-title {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .main-video-duration {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            overflow-y: scroll;
+            max-height: 300px;
+        }
+
+        .sidebar-item {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-item img {
+            width: 120px;
+            height: 68px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .sidebar-duration {
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        @media (min-width: 768px) {
+            .video-container {
+                flex-direction: row;
+            }
+
+            .sidebar {
+                margin-top: 0;
+                margin-left: 20px;
+                flex-direction: column;
+                max-height: none;
+                overflow-y: auto;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .sidebar {
+                flex-direction: row;
+                overflow-x: scroll;
+                max-height: none;
+            }
+
+            .sidebar-item {
+                flex-direction: column;
+                margin-right: 10px;
+            }
+
+            .sidebar-item img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+    </style>
+</head>
+    <body>
+        <div class="video-container">
+            <div class="main-video">
+                <img src="https://via.placeholder.com/800x450.png?text=Main+Video" alt="Main Video Thumbnail">
+                <div class="main-video-title">S8 E17 | T.K. Kirkland</div>
+                <div class="main-video-duration">04:02:37</div>
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-item">
+                    <img src="https://via.placeholder.com/120x68.png?text=Video+1" alt="Video 1 Thumbnail">
+                    <div class="sidebar-title">S8 E16 | MC Eiht & Norm Steele</div>
+                    <div class="sidebar-duration">03:04:24</div>
+                </div>
+                <div class="sidebar-item">
+                    <img src="https://via.placeholder.com/120x68.png?text=Video+2" alt="Video 2 Thumbnail">
+                    <div class="sidebar-title">S8 E15 | Mayor Eric Adams</div>
+                    <div class="sidebar-duration">02:09:31</div>
+                </div>
+                <div class="sidebar-item">
+                    <img src="https://via.placeholder.com/120x68.png?text=Video+3" alt="Video 3 Thumbnail">
+                    <div class="sidebar-title">S8 E14 | WILL.I.AM</div>
+                    <div class="sidebar-duration">02:20:17</div>
+                </div>
+                <!-- Add more sidebar items as needed -->
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

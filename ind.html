@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Column Layout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #6eb79c;
+        }
+        .ourstorycontainer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .oscont {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .oscontimage-column img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .osconttext-column {
+            text-align: center;
+        }
+        .osconttext-column h2 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+            transform-origin: center center;
+        }
+
+        /* For large screens */
+        @media (min-width: 768px) {
+            ..ourstorycontainer {
+                flex-direction: row;
+            }
+            .osconttext-column h2 {
+                transform: rotate(-90deg);
+            }
+        }
+
+        /* For smaller screens */
+        @media (max-width: 767px) {
+            .ourstorycontainer {
+                flex-direction: column;
+            }
+            .osconttext-column h2 {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ourstorycontainer">
+        <div class="oscont oscontimage-column">
+            <img src="img2.png" alt="Photo of founder danielle">
+        </div>
+        <div class="oscontcolumn osconttext-column">
+            <h2>Our Story</h2>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zesty Image Carousel</title>
+    <style>
+        .gloop {  
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+        }
+        .flibber {  
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .wizzle {  
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .wizzle img {
+            width: 100%;
+            display: block;
+        }
+        .gazork {  
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .gazork a {
+            margin-top: 10px;
+            display: inline-block;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .jibber {  
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .jibber button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="gloop" id="gloop">
+    <div class="flibber">
+        <div class="wizzle active">
+            <img src="https://www.revolt.tv/media_121d318bac2d17bd109c9169cffd53d53b579e6da.png?width=1920&format=webply&optimize=high" alt="Image 1">
+            <div class="gazork">
+                <h5>Image 1 Description</h5>
+                <a href="link1.html">Read Here</a>
+            </div>
+        </div>
+        <div class="wizzle">
+            <img src="https://www.revolt.tv/media_121d318bac2d17bd109c9169cffd53d53b579e6da.png?width=1920&format=webply&optimize=high" alt="Image 2">
+            <div class="gazork">
+                <h5>Image 2 Description</h5>
+                <a href="link2.html">Read Here</a>
+            </div>
+        </div>
+        <div class="wizzle">
+            <img src="https://www.revolt.tv/media_121d318bac2d17bd109c9169cffd53d53b579e6da.png?width=1920&format=webply&optimize=high" alt="Image 3">
+            <div class="gazork">
+                <h5>Image 3 Description</h5>
+                <a href="link3.html">Read Here</a>
+            </div>
+        </div>
+    </div>
+    <div class="jibber">
+        <button class="jibber-button prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="jibber-button next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+</div>
+
+    <script>
+        let currentIndex = 0;
+
+        function moveSlide(direction) {
+            const flibber = document.querySelector('.flibber');
+            const wizzles = document.querySelectorAll('.wizzle');
+            const totalItems = wizzles.length;
+
+            currentIndex = (currentIndex + direction + totalItems) % totalItems;
+
+            const translateX = -currentIndex * 100;
+            flibber.style.transform = `translateX(${translateX}%)`;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nonprofit Events Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .events-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+ 
+        }
+
+        .year {
+            width: 100%;
+            /* Maintain aspect ratio */
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .year img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .year:hover {
+            transform: scale(1.05);
+        }
+
+        .event-details {
+            display: none;
+            flex-direction: row;
+            gap: 20px;
+            margin-top: 20px;
+            grid-column: 1 / -1;
+        }
+
+        .event-left, .event-right {
+            flex: 1;
+        }
+
+        .event-right img {
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 15px;
+        }
+        .event-right iframe{
+            border-radius: 15px;
+        }
+
+        .rectangle {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+
+        .shadow {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 33%;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
+        }
+
+        .text {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="events-container">
+        <div class="year" onclick="showEventDetails(this, 'event1')">
+            <div class="rectangle" style="background-image: url('https://scontent-sjc3-1.xx.fbcdn.net/v/t1.6435-9/74592561_1436837549800100_8248506123854807040_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=-GkZejvU5z0Q7kNvgEX8nMV&_nc_ht=scontent-sjc3-1.xx&oh=00_AYAcm0mZ7EjL2alYZCLtV9iJip1-CPG_Bj3XpxzQvXNPnA&oe=668F6566');">
+                <div class="shadow"></div>
+                <div class="text">2019 7th Annual Conference</div>
+            </div>
+        </div>
+        <div class="year" onclick="showEventDetails(this, 'event2')">
+            <div class="rectangle" style="background-image: url('https://scontent-sjc3-1.xx.fbcdn.net/v/t1.6435-9/42937137_1129738713843320_7146878417231675392_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=F_8kF83_t2YQ7kNvgGRAYxG&_nc_ht=scontent-sjc3-1.xx&oh=00_AYA3YgxaiVpudh4s6ekh3x3aUlZ96cWD2jeOfvkBri7Rdw&oe=668F6C7F');">
+                <div class="shadow"></div>
+                <div class="text">2018 6th Annual Conference</div>
+            </div>
+        </div>
+        <div class="year" onclick="showEventDetails(this, 'event3')">
+            <div class="rectangle" style="background-image: url('https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/22047988_892495987567595_7680636588672457180_o.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=vGP5XFE0k5UQ7kNvgGNvBAH&_nc_ht=scontent-sjc3-1.xx&oh=00_AYDeDvcfP96LxJApl_cLWYRmmrKr0khh8Q797qxESRnuWg&oe=668F8035');">
+                <div class="shadow"></div>
+                <div class="text">2017 5th Annual Conference</div>
+            </div>
+        </div>
+        <div class="year" onclick="showEventDetails(this, 'event4')">
+            <div class="rectangle" style="background-image: url('https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/15591653_737893879694474_440126542563604401_o.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=prOpv-P17z4Q7kNvgFSM8fr&_nc_ht=scontent-sjc3-1.xx&oh=00_AYCUhAwy401YY-YTbLMd3WaYSFDRSQMDtZhKKUr238yMCQ&oe=668F7C2E');">
+                <div class="shadow"></div>
+                <div class="text">2016 4th Annual Conference</div>
+            </div>
+        </div>
+        <div class="year" onclick="showEventDetails(this, 'event5')">
+            <div class="rectangle" style="background-image: url('https://scontent-sjc3-1.xx.fbcdn.net/v/t1.18169-9/12036733_539237369560127_1817109124946016375_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=75teR-u30IIQ7kNvgGKMuZe&_nc_ht=scontent-sjc3-1.xx&oh=00_AYC6EZkjO4HcUj1m3zl-vytHPboCIPa2Zx2ALDgsX6Ia1w&oe=668F6EB7');">
+                <div class="shadow"></div>
+                <div class="text">2015 3rd Annual Conference</div>
+            </div>
+        </div>
+        <div class="year" onclick="showEventDetails(this, 'event6')">
+            <div class="rectangle" style="background-image: url('https://scontent-sjc3-1.xx.fbcdn.net/v/t1.18169-9/10850267_412149935602205_9213716278874258764_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=m68DwoDPwcAQ7kNvgFxdKtD&_nc_ht=scontent-sjc3-1.xx&oh=00_AYB368o-Jy-6_-rj1sCqFGF7f6QL0DZ58ev-GmD1jiaMUw&oe=668F76A5');">
+                <div class="shadow"></div>
+                <div class="text">2014 2nd Annual Conference</div>
+            </div>
+        </div>
+        <div class="year" onclick="showEventDetails(this, 'event7')">
+            <div class="rectangle" style="background-image: url('https://scontent-sjc3-1.xx.fbcdn.net/v/t1.18169-9/10614338_360517100765489_20600105895616790_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=EyV90AKZIuwQ7kNvgEIJPvQ&_nc_ht=scontent-sjc3-1.xx&oh=00_AYDelXEuhnfqtEbR5KHDCcNSaNRdwJCY-JwSGj-9hg6uvA&oe=668F7DFE');">
+                <div class="shadow"></div>
+                <div class="text">2013 First Annual Conference</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="event-details" class="event-details">
+        <div class="event-left">
+            <h2 id="event-year">Year</h2>
+            <h3 id="event-title">Event Title</h3>
+            <p id="event-honoree">Honoree</p>
+            <div id="event-video"></div>
+        </div>
+        <div class="event-right">
+            <!-- Photos will load here dynamically based on the event year data -->
+        </div>
+    </div>
+
+    <script>
+        function showEventDetails(element, eventId) {
+            const eventDetails = {
+                event1: {
+                    year: "2019",
+                    title: "Media Powers: Nothing Moves Without Us",
+                    honoree: "Yandy Smith Harris",
+                    photos: ["https://scontent-sjc3-1.xx.fbcdn.net/v/t1.6435-9/74592561_1436837549800100_8248506123854807040_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=-GkZejvU5z0Q7kNvgEX8nMV&_nc_ht=scontent-sjc3-1.xx&oh=00_AYAcm0mZ7EjL2alYZCLtV9iJip1-CPG_Bj3XpxzQvXNPnA&oe=668F6566", ""],
+                    video: '<iframe width="100%" height="315" src="https://www.youtube.com/embed/wpBbUijVR7g?si=QgWhvUgdHjlf6NSL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+                },
+                event2: {
+                    year: "2018",
+                    title: "LIMITLESS: BEYOND THE GLASS CEILING",
+                    honoree: "Angela Yee",
+                    photos: ["https://live.staticflickr.com/1868/44755283912_d49f70e2cb_h.jpg", "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.6435-9/42937137_1129738713843320_7146878417231675392_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=F_8kF83_t2YQ7kNvgGRAYxG&_nc_ht=scontent-sjc3-1.xx&oh=00_AYA3YgxaiVpudh4s6ekh3x3aUlZ96cWD2jeOfvkBri7Rdw&oe=668F6C7F", "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.6435-9/42878874_1129738123843379_8138419240110653440_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=3qDlW2T5sJcQ7kNvgHca9bE&_nc_ht=scontent-sjc3-1.xx&oh=00_AYCNHwfqZpesP0n-P2nT6M8Y-hzDZBRzhG-L8udb5W8mdQ&oe=668F5D72",  "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.6435-9/42874242_1129736377176887_7835054975460835328_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ECeSEt0zbMMQ7kNvgEykQ6p&_nc_ht=scontent-sjc3-1.xx&oh=00_AYAyZBsyZAab036Jbub3sRvTxHOxEgv0OPIJ4mE8RjzMFQ&oe=668F4209", "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.6435-9/42970366_1129743603842831_2390831542894067712_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=wqnTB6rPz38Q7kNvgGlDR2H&_nc_ht=scontent-sjc3-1.xx&oh=00_AYD93Ykcd_3H5Z3SXfa6VGpcBG1q6M7hiN7kpcPk7DwBjQ&oe=668F767B", "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.6435-9/44279941_1139394746211050_7611335811253927936_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=XFKTKohC430Q7kNvgFRzPHZ&_nc_ht=scontent-sjc3-1.xx&oh=00_AYDffSvl2vbHTvIFSOd8bdmpgXAVdipdkqb2_HizcBcvpg&oe=668F7481"],
+                    video: ""
+                },
+                event3: {
+                    year: "2017",
+                    title: "Advocacy & Leaders: Be Bold. Be Seen. Be Heard",
+                    honoree: "Sonia Sanchez",
+                    photos: ["https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/22047819_892493367567857_3593803487682239701_o.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ZkOZ5De-6nwQ7kNvgHiwTmX&_nc_ht=scontent-sjc3-1.xx&oh=00_AYBgvfz0YbxvMYUAswkY0xA2b502s7nCoC7s1heClMnIgQ&oe=668F6EA6", "https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/22042265_892487357568458_3196284927782953256_o.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=5GVPbBW1hSIQ7kNvgGIf_3S&_nc_ht=scontent-sjc3-1.xx&oh=00_AYC7cwqQA8we9u9eknITL_13X7EMwPVlqGUt8-zsRp8c3w&oe=668F6C60", "https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/22051015_892480414235819_364057487536158602_o.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ZYBtbv-TpCwQ7kNvgHZcVS4&_nc_ht=scontent-sjc3-1.xx&oh=00_AYCeCjMzi4KFjy6u_nIu1PBGhN5s7epifZGeYZl5hC1fiw&oe=668F597C", "https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/21992954_892479710902556_7710131354641962646_o.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=4ltCF2vD0KYQ7kNvgFwM740&_nc_ht=scontent-sjc3-1.xx&oh=00_AYAylhG-c6sWgyyrCqx8j7x5tZJLy_60gPxRYKCOoDEIPw&oe=668F6470", "https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/21994452_892483927568801_8314980454870567954_o.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=cZRa-1ZAOd8Q7kNvgG58xLc&_nc_ht=scontent-sjc3-1.xx&oh=00_AYAQGBdt2sGjOIokS0dFadQE_Aib2lo36GmBh7f1uQRb9w&oe=668F6C1E", "https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/21427501_892485504235310_5992062737121122068_o.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=XzII0zASEEEQ7kNvgE-tLoA&_nc_ht=scontent-sjc3-1.xx&oh=00_AYDnlRfXU35PsmZM8cfqZkrzOfw85jLTvKBjsJ00vONGAw&oe=668F4C54", "https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/22041915_892491050901422_2854823687961238237_o.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=cJNDe_aLWOAQ7kNvgFRuTeU&_nc_ht=scontent-sjc3-1.xx&oh=00_AYB-xkCb5kJ49AKJ1lTZUXKupREltm6oqQOEAzqny3DDow&oe=668F6081", "https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/22047988_892495987567595_7680636588672457180_o.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=vGP5XFE0k5UQ7kNvgGNvBAH&_nc_ht=scontent-sjc3-1.xx&oh=00_AYDEQn3bky4wv_lGC9o0FiXnAuJtnERKdzs5uPnnubT-hw&oe=668F47F5"],
+                    video: ""
+                },
+                event4: {
+                    year: "2016",
+                    title: "Women In Media: Crossing Borders",
+		honoree: "Tracy Davidson",
+                    photos: ["https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/15626551_737893443027851_5172765973957634315_o.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=0L4I6iEPWrcQ7kNvgHchgpW&_nc_ht=scontent-sjc3-1.xx&oh=00_AYAB46IPaig6kvWJ3TwDDWUtqxezZc8LIy0rjDLTSvvAVA&oe=668F4C7E", "https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/15626040_737893523027843_4628125120667134672_o.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=U6AcgQppTuUQ7kNvgHAB7bl&_nc_ht=scontent-sjc3-1.xx&oh=00_AYC4hRodVvTyHB9nc5bfl8Sep00fv2XxXqktBUZlFYGg3Q&oe=668F5725", "https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/15590814_737893389694523_8289132044537434188_o.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=uf-FGw-vKKMQ7kNvgErQ707&_nc_ht=scontent-sjc3-1.xx&oh=00_AYDyVUdTL_sGFqJjf__k-l6r8Srh84NfCQhJ1EUS0QzlNw&oe=668F6CCB", "https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/15591653_737893879694474_440126542563604401_o.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=prOpv-P17z4Q7kNvgFSM8fr&_nc_ht=scontent-sjc3-1.xx&oh=00_AYC77b6lCa5Sv7gNdbcN_9ER2ylb9lab_MV2FpeUvj5RrQ&oe=668F43EE", "https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/15625712_737893956361133_1473218775719256618_o.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=XyyqSkMEV6wQ7kNvgGoHwhJ&_nc_ht=scontent-sjc3-1.xx&oh=00_AYAYsY7-PmnQlQ6Zlw55M2I5wl2DIwQIsRKDTqhq_iStmw&oe=668F6845", "https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/15591446_737894889694373_617160839818090098_o.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=e1vDHa7FbvUQ7kNvgEhWTAO&_nc_ht=scontent-sjc3-1.xx&oh=00_AYD4BlFpOb_o1Hvlyxh9Y7gg_D7C3HygUpIDukQv-GBoeA&oe=668F5D93", "https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/15590935_737894956361033_6345523246332509167_o.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ReiEcdJyUaEQ7kNvgGCL64D&_nc_ht=scontent-sjc3-1.xx&oh=00_AYC7BB5HOAE0guKiyEZfkm4RlPtk4PDawturQhel5wcWXA&oe=668F4D47"],
+                    video: ""
+                },
+                event5: {
+                    year: "2015",
+                    title: "Calling All Leaders",
+                    honoree: "Loraine Ballard Morril",
+                    photos: ["https://scontent-sjc3-1.xx.fbcdn.net/v/t31.18172-8/12031569_539237676226763_4637008717421525204_o.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=l6reDsHHg5EQ7kNvgGSKw0m&_nc_ht=scontent-sjc3-1.xx&oh=00_AYAf236DTsHwPV35-jV0P_auehaeTj0FNQQnhKNnbgd5dQ&oe=668F50F0"],
+                    video: '<iframe width="100%" height="315" src="https://www.youtube.com/embed/tEkQytNpHDc?si=Jm8ARAqHAqbLr4oq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+                },
+                event6: {
+                    year: "2014",
+                    title: "Emporing, Equipping, Encouraging Women",
+                    honoree: "Dyana Williams",
+                    photos: ["https://scontent-sjc3-1.xx.fbcdn.net/v/t1.18169-9/10801862_412149368935595_2703845062791944511_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=SHlTExUs7mQQ7kNvgFdb2Qr&_nc_ht=scontent-sjc3-1.xx&oh=00_AYDvVw0GX5RpZHUE_SwXD-Gon1yi6F2qIKtDElSkJn_k4A&oe=668F507C"],
+                    video: '<iframe width="100%" height="315" src="https://www.youtube.com/embed/JndzChjAEPg?si=AkbU7hRkUZnv1eeV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+                },
+                event7: {
+                    year: "2013",
+                    title: "First Annual Conference",
+                    honoree: "",
+                    photos: ["https://scontent-sjc3-1.xx.fbcdn.net/v/t1.18169-9/10614338_360517194098813_8047276803929579837_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=CqOpZirPuIYQ7kNvgFrqW_X&_nc_ht=scontent-sjc3-1.xx&oh=00_AYDKZmomHvjs9M5nH4RqHNj0xQtL5GBvYfdWzi2FUMe23w&oe=668F6511","https://scontent-sjc3-1.xx.fbcdn.net/v/t1.18169-9/10563213_360516844098848_602178054287001171_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=wrZnxbnBSC0Q7kNvgHGPYhm&_nc_ht=scontent-sjc3-1.xx&oh=00_AYB4ppIybhqNEHV_HHqtCsAmwGfbVtHdbGiqwXnLSpsxKg&oe=668F8768","https://scontent-sjc3-1.xx.fbcdn.net/v/t1.18169-9/10584076_360516937432172_6481954690431332252_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=mJ8yCxRvJfMQ7kNvgFg7Bja&_nc_ht=scontent-sjc3-1.xx&oh=00_AYDqUC2WGxxNoM1kgazcXMSegie1W3sR2uz7hcvkDffgOQ&oe=668F8470"],
+                    video: ""
+                }
+            };
+
+           const event = eventDetails[eventId];
+            if (event) {
+                document.getElementById('event-year').textContent = event.year;
+                document.getElementById('event-title').textContent = event.title;
+                document.getElementById('event-honoree').textContent = "Honoree: " + event.honoree;
+
+                const eventPhotos = event.photos.map(photo => `<img src="${photo}" alt="Event Photo">`).join('');
+                document.querySelector('.event-right').innerHTML = event.video + eventPhotos;
+
+                const detailsElement = document.getElementById('event-details');
+                detailsElement.style.display = 'flex';
+
+                const eventContainer = document.querySelector('.events-container');
+                const yearElements = Array.from(eventContainer.children);
+                const index = yearElements.indexOf(element);
+
+                const currentRow = Math.floor(index / 3);
+                const insertIndex = (currentRow + 1) * 3;
+
+                const insertBeforeNode = yearElements[insertIndex] ? yearElements[insertIndex] : null;
+
+                if (insertBeforeNode && eventContainer.contains(insertBeforeNode)) {
+                    eventContainer.insertBefore(detailsElement, insertBeforeNode);
+                } else {
+                    eventContainer.appendChild(detailsElement);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

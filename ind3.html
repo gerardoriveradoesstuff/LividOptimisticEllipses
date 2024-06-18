@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Carousel</title>
+    <style>
+        body {
+            background: black;
+        }
+        .carousel {
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+       
+            border-radius: 10px;
+         
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            position: relative;
+        }
+        .carousel-item p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            color: white; 
+        }
+        .carousel-item h5 {
+            text-align: center;
+            font-size: 1em;
+            color: #6eb79c;
+        }
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-control {
+            background: rgba(0, 0, 0, 1);
+            color: white;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+            padding: 10px;
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="carousel" id="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item">
+            <p>"Supporting this initiative is truly incredible! Women In Media uplifts, motivates, and propels me forward, empowering me to expand my business, elevate my performance, and reach new heights."</p>
+            <h5>- Tomaka Gardner</h5>
+        </div>
+        <div class="carousel-item">
+            <p>"Women In Media's reputation precedes itself, and it's truly impeccable. As a brand ambassador for WIM GLOBAL, I consistently experience the same level of respect and regard as our Founder Danielle P. Jeter. In an industry where such treatment is rare, I deeply value and honor the standard of excellence set by WIM."</p>
+            <h5>- Tomaka Gardner</h5>
+        </div>
+        <div class="carousel-item">
+            <p>"Attending the Women In Media GLOBAL event alongside Sonia Sanchez was truly transformative. This sisterhood organization has profoundly impacted my life, enhancing both my personal and professional growth. Through this community, I've learned to strive for more, to reach higher, and to never settle for anything less than my full potential."</p>
+            <h5>- Laura Elam</h5>
+        </div>
+        <div class="carousel-item">
+            <p>"I've dedicated many years to Women In Media, both as a volunteer and a member. My commitment remains steadfast because I wholeheartedly believe in its mission and values."</p>
+            <h5>- Ernie Bristow</h5>
+        </div>
+        <div class="carousel-item">
+            <p>"What sets Women In Media apart is their unwavering commitment to putting women at the forefront of everything they do."</p>
+            <h5>- Laura Elam</h5>
+        </div>
+    </div>
+    <div class="carousel-controls">
+        <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+</div>
+
+<script>
+    let currentIndex = 0;
+
+    function moveSlide(direction) {
+        const carouselInner = document.querySelector('.carousel-inner');
+        const items = document.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+
+        currentIndex = (currentIndex + direction + totalItems) % totalItems;
+
+        const translateX = -currentIndex * 100;
+        carouselInner.style.transform = `translateX(${translateX}%)`;
+    }
+</script>
+
+</body>
+</html>

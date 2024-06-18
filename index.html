@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle Grid with Photo Gallery</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+        }
+
+        .rectangle {
+            position: relative;
+            width: 200px;
+            height: 150px;
+            border-radius: 15px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+
+        .shadow {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 33%;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
+        }
+
+        .text {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .gallery {
+            display: none;
+            grid-column: span 3;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+            border-radius: 10px;
+        }
+
+        .expanded {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="rectangle" style="background-image: url('https://via.placeholder.com/200x150');" onclick="toggleGallery(this, 'gallery1')">
+            <div class="shadow"></div>
+            <div class="text">Text 1</div>
+            <div class="gallery" id="gallery1">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 1">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 2">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 3">
+            </div>
+        </div>
+        <div class="rectangle" style="background-image: url('https://via.placeholder.com/200x150');" onclick="toggleGallery(this, 'gallery2')">
+            <div class="shadow"></div>
+            <div class="text">Text 2</div>
+            <div class="gallery" id="gallery2">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 1">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 2">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 3">
+            </div>
+        </div>
+        <div class="rectangle" style="background-image: url('https://via.placeholder.com/200x150');" onclick="toggleGallery(this, 'gallery3')">
+            <div class="shadow"></div>
+            <div class="text">Text 3</div>
+            <div class="gallery" id="gallery3">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 1">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 2">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 3">
+            </div>
+        </div>
+        <div class="rectangle" style="background-image: url('https://via.placeholder.com/200x150');" onclick="toggleGallery(this, 'gallery4')">
+            <div class="shadow"></div>
+            <div class="text">Text 4</div>
+            <div class="gallery" id="gallery4">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 1">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 2">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 3">
+            </div>
+        </div>
+        <div class="rectangle" style="background-image: url('https://via.placeholder.com/200x150');" onclick="toggleGallery(this, 'gallery5')">
+            <div class="shadow"></div>
+            <div class="text">Text 5</div>
+            <div class="gallery" id="gallery5">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 1">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 2">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 3">
+            </div>
+        </div>
+        <div class="rectangle" style="background-image: url('https://via.placeholder.com/200x150');" onclick="toggleGallery(this, 'gallery6')">
+            <div class="shadow"></div>
+            <div class="text">Text 6</div>
+            <div class="gallery" id="gallery6">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 1">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 2">
+                <img src="https://via.placeholder.com/100x100" alt="Placeholder 3">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleGallery(rectangle, galleryId) {
+            const gallery = document.getElementById(galleryId);
+            const expanded = gallery.style.display === 'flex';
+            
+            // Close all galleries
+            document.querySelectorAll('.gallery').forEach(g => g.style.display = 'none');
+            
+            // Expand the clicked one if it was not already expanded
+            if (!expanded) {
+                gallery.style.display = 'flex';
+                gallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+"Supporting this initiative is truly incredible! Women In Media uplifts, motivates, and propels me forward, empowering me to expand my business, elevate my performance, and reach new heights." - Tomaka Gardner
+          
+          
+          
+          "Women In Media's reputation precedes itself, and it's truly impeccable. As a brand ambassador for WIM GLOBAL, I consistently experience the same level of respect and regard as our Founder Danielle P. Jeter. In an industry where such treatment is rare, I deeply value and honor the standard of excellence set by WIM." - Tomaka Gardner
+          
+          
+          "Attending the Women In Media GLOBAL event alongside Sonia Sanchez was truly transformative. This sisterhood organization has profoundly impacted my life, enhancing both my personal and professional growth. Through this community, I've learned to strive for more, to reach higher, and to never settle for anything less than my full potential." - Laura Elam
+          
+          "I've dedicated many years to Women In Media, both as a volunteer and a member. My commitment remains steadfast because I wholeheartedly believe in its mission and values." - Ernie Bristow
+      
+          
+          "What sets Women In Media apart is their unwavering commitment to putting women at the forefront of everything they do." - Laura Elam
